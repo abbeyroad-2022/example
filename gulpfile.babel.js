@@ -76,8 +76,6 @@ const js = () =>
     // }))
     .pipe(gulp.dest(routes.js.dest))
 
-    
-
 const inc = () => 
   gulp.src([
       routes.html.src,
