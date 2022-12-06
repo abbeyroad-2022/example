@@ -2,6 +2,7 @@ import gulp from "gulp";
 import del from "del";
 import ws from "gulp-webserver";
 import image from "gulp-image";
+//import validator from "gulp-html";
 import autoprefixer from "gulp-autoprefixer";
 import bro from "gulp-bro"
 import babelify from "babelify"
@@ -18,17 +19,18 @@ const routes = {
     dest: "build/img"
   },
   html: {
-    src: "src/html/*",
+    watch: "src/html/**/*.html",
+    src: "src/html/*.html",
     dest: "build/"
   },
   scss: {
     watch: "src/scss/**/*.scss",
-    src: "src/scss/style.scss",
+    src: "src/scss/*.scss",
     dest: "build/css"
   },
   js: {
     watch: "src/js/**/*.js",
-    src: "src/js/main.js",
+    src: "src/js/*.js",
     dest: "build/js"
   },
   include : {
@@ -46,11 +48,6 @@ const clean = () => del(["build/",".publish"]);
 
 const webserver = () =>
   gulp.src("build").pipe(ws({ livereload: true, open: true }));
-
-const html = () =>
-  gulp
-    .src(routes.html.src)
-    .pipe(gulp.dest("src/html"));
 
 const img = () =>
   gulp
@@ -76,8 +73,6 @@ const js = () =>
     // }))
     .pipe(gulp.dest(routes.js.dest))
 
-    
-
 const inc = () => 
   gulp.src([
       routes.html.src,
@@ -94,19 +89,19 @@ const gh = () => gulp.src("build/**/*").pipe(ghPages())
 
 const watch = () => {
   gulp.watch(routes.img.src, img);
-  gulp.watch(routes.html.src, html);
+  gulp.watch(routes.html.watch, inc);
   gulp.watch(routes.scss.watch, styles);
   gulp.watch(routes.js.watch, js);
-  //gulp.watch(routes.include.watch, includeHTML);
 };
 
 
 const prepare = gulp.series([clean, img, inc]);
     
-const assets = gulp.series([styles, js, html]);
+const assets = gulp.series([styles, js]);
 
 const live = gulp.parallel([webserver, watch]);
 
 export const build = gulp.series([prepare, assets])
 export const dev = gulp.series([build, live])
 export const deploy = gulp.series([build, gh, clean])
+
