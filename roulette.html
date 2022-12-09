@@ -27,41 +27,22 @@
 
     btn.addEventListener("click",(e)=>{
       start = !start;
-      console.log(start)
       if(start){
+        roulette.style.transform = "rotate("+ 0 +"deg)"
         roulette.style.animationName = "rotating" 
         roulette.classList.add("active")
-        e.target.innerText = 'stop';
+        e.target.innerText = 'STOP';
       } else {
-        roulette.addEventListener('animationiteration', () => {
-          let num =  Math.round((Math.random()*(count-1)));
-          roulette.classList.remove("active");
-          setTimeout(() => {
-            roulette.style.transform = "rotate("+(360 * 5 +360-((360/count)*num)) +"deg)"
-          }, "00")
-        });
-        
+        let num =  Math.round((Math.random()*(count-1)));
+        roulette.classList.remove("active");
+        e.target.disabled = true;
+        roulette.style.transform = "rotate("+(360 * 5 +360-((360/count)*num)) +"deg)"
+        setTimeout(() => {
+          e.target.disabled = false;
+          e.target.innerText = 'START';
+          roulette.style.animationName = "none" 
+        }, "4800")
       }
-      // if(start){
-      //   //roulette.classList.add("active")
-      //   // setInterval(()=>{
-      //   //   roulette.style.transform = "rotate("+(360*15)+"deg)" 
-      //   // },0);
-      //   //roulette.style.animation="rotating 0.3s linear infinite;"
-      //   //roulette.style.transform = "rotate("+(360 * 50) +"deg)" 
-      //   e.target.innerText = 'stop';
-      // } else {
-      //   // ['animationiteration', 'webkitAnimationIteration'].forEach((i)=>{
-      //   //   roulette.addEventListener(i,function () {
-      //   //     roulette.classList.remove("active")
-      //   // roulette.style.transform = "rotate("+(360 * 5 +  360-((360/count)*num)) +"deg)" 
-      //   //     //roulette.off();
-      //   //   });
-      //   // })
-      //   //e.target.disabled = true;
-      //   let num =  Math.round((Math.random()*(count-1)))
-      //   roulette.style.transform = "rotate("+(360 * 5 +  360-((360/count)*num)) +"deg)" 
-      // }
     })
   </script>
 
