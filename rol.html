@@ -26,17 +26,16 @@
     let count = 6;
     let start = false;
 
-    
-    roulette.style.transform = "rotate("+ 0 +"deg)"
-    roulette.style.animationName = "rotating" 
-    roulette.classList.add("active")
-
     btn.addEventListener("click",(e)=>{
       start = !start;
       if(start){
         e.target.innerText = 'STOP';
+        roulette.style.animationName = "rotating" 
+        roulette.classList.add("active")
+        e.target.innerText = 'STOP';
       } else {
         e.target.innerText = 'START';
+        roulette.classList.remove("active");
       }
         // e.target.innerText = 'STOP';
         // let num =  Math.round((Math.random()*(count-1)));
