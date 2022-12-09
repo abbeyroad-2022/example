@@ -28,11 +28,11 @@
 
     
     roulette.style.transform = "rotate("+ 0 +"deg)"
-        roulette.style.animationName = "rotating" 
-        roulette.classList.add("active")
-        e.target.innerText = 'STOP';
+    roulette.style.animationName = "rotating" 
+    roulette.classList.add("active")
 
     btn.addEventListener("click",(e)=>{
+        e.target.innerText = 'STOP';
         let num =  Math.round((Math.random()*(count-1)));
         alert(num)
         roulette.classList.remove("active");
