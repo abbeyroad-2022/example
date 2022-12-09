@@ -10,8 +10,8 @@
 <body >
   <div class="roulette-wrapper">
     <div class="roulette-bg">
-      <!-- <img class="roulette" src="https://m.lifeplanet.co.kr:444/commons/slink/administrator/openInnovation/img/MO)%20360%ED%94%8C%EB%9E%98%EB%8B%9B_%EB%A3%B0%EB%A0%9B%ED%8C%90_476x476_201026.png"> -->
-      <img class="roulette" src="https://register.flybuys.com.au/cdn/edm/library/assets/2017_07/spin-wheel-v2.png">
+      <img class="roulette" src="https://m.lifeplanet.co.kr:444/commons/slink/administrator/openInnovation/img/MO)%20360%ED%94%8C%EB%9E%98%EB%8B%9B_%EB%A3%B0%EB%A0%9B%ED%8C%90_476x476_201026.png">
+      <!-- <img class="roulette" src="https://register.flybuys.com.au/cdn/edm/library/assets/2017_07/spin-wheel-v2.png"> -->
       <button class="roulette-btn">
         START
       </button>
@@ -23,13 +23,13 @@
   <script>
     let btn = document.querySelector(".roulette-btn");
     let roulette = document.querySelector(".roulette");
-    let count = 10;
+    let count = 6;
     let start = false;
 
     btn.addEventListener("click",(e)=>{
+      roulette.style.transform = "rotate("+ 0 +"deg)"
       start = !start;
       if(start){
-        roulette.style.transform = "rotate("+ 0 +"deg)"
         roulette.style.animationName = "rotating" 
         roulette.classList.add("active")
         e.target.innerText = 'STOP';
