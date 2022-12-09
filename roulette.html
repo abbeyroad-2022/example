@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test</title>
+  <link rel="stylesheet" href="css/style.css"><title>Test</title>
+</head>
+<body >
+  <div class="roulette-wrapper">
+    <div class="roulette-bg">
+      <img class="roulette" src="https://m.lifeplanet.co.kr:444/commons/slink/administrator/openInnovation/img/MO)%20360%ED%94%8C%EB%9E%98%EB%8B%9B_%EB%A3%B0%EB%A0%9B%ED%8C%90_476x476_201026.png">
+      <button class="roulette-btn">
+        START
+      </button>
+      <span class="arrow">
+        <img src="http://webimg.jestina.co.kr/UpData/jestina/event/201201_jWeek/roulette_niddle.png">
+      </span>
+    </div>
+  </div>
+  <script>
+    let btn = document.querySelector(".roulette-btn");
+    let roulette = document.querySelector(".roulette");
+    let count = 6;
+    let start = false;
+
+    btn.addEventListener("click",(e)=>{
+      start = !start;
+      console.log(start)
+      if(start){
+        roulette.style.animationName = "rotating" 
+        roulette.classList.add("active")
+        e.target.innerText = 'stop';
+      } else {
+        roulette.addEventListener('animationiteration', () => {
+          let num =  Math.round((Math.random()*(count-1)));
+          roulette.classList.remove("active");
+          setTimeout(() => {
+            roulette.style.transform = "rotate("+(360 * 5 +360-((360/count)*num)) +"deg)"
+          }, "00")
+        });
+        
+      }
+      // if(start){
+      //   //roulette.classList.add("active")
+      //   // setInterval(()=>{
+      //   //   roulette.style.transform = "rotate("+(360*15)+"deg)" 
+      //   // },0);
+      //   //roulette.style.animation="rotating 0.3s linear infinite;"
+      //   //roulette.style.transform = "rotate("+(360 * 50) +"deg)" 
+      //   e.target.innerText = 'stop';
+      // } else {
+      //   // ['animationiteration', 'webkitAnimationIteration'].forEach((i)=>{
+      //   //   roulette.addEventListener(i,function () {
+      //   //     roulette.classList.remove("active")
+      //   // roulette.style.transform = "rotate("+(360 * 5 +  360-((360/count)*num)) +"deg)" 
+      //   //     //roulette.off();
+      //   //   });
+      //   // })
+      //   //e.target.disabled = true;
+      //   let num =  Math.round((Math.random()*(count-1)))
+      //   roulette.style.transform = "rotate("+(360 * 5 +  360-((360/count)*num)) +"deg)" 
+      // }
+    })
+  </script>
+
+</body>
+
+</html>
