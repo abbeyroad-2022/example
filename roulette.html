@@ -27,14 +27,14 @@
     let start = false;
 
     btn.addEventListener("click",(e)=>{
+      let num =  Math.round((Math.random()*(count-1)));
       start = !start;
       if(start){
+        roulette.style.transform = "rotate("+ 0 +"deg)"
         roulette.style.animationName = "rotating" 
         roulette.classList.add("active")
         e.target.innerText = 'STOP';
       } else {
-        roulette.style.transform = "rotate("+ 0 +"deg)"
-        let num =  Math.round((Math.random()*(count-1)));
         roulette.classList.remove("active");
         e.target.disabled = true;
         roulette.style.transform = "rotate("+(360 * 5 +360-((360/count)*num)) +"deg)"
