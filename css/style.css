@@ -288,8 +288,8 @@ table {
     .roulette-wrapper .roulette-bg img {
       width: 80%;
       margin: 0 auto;
-      -webkit-transition: all 4.5s;
-      transition: all 4.5s;
+      -webkit-transition: rotate 4.5s;
+      transition: rotate 4.5s;
       -webkit-transition-timing-function: ease-out;
               transition-timing-function: ease-out; }
       .roulette-wrapper .roulette-bg img.active {
