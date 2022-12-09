@@ -39,6 +39,7 @@
         roulette.style.transform = "rotate("+ 0 +"deg)"
         e.target.innerText = 'START';
         roulette.classList.remove("active");
+        roulette.style.transform = "rotate("+(360 * 5 +360-((360/count)*num)) +"deg)"
       }
       
         // e.target.innerText = 'STOP';
