@@ -27,9 +27,9 @@
     let start = false;
 
     btn.addEventListener("click",(e)=>{
-      roulette.style.transform = "rotate("+ 0 +"deg)"
       start = !start;
       if(start){
+        roulette.style.transform = "rotate("+ 0 +"deg)"
         roulette.style.animationName = "rotating" 
         roulette.classList.add("active")
         e.target.innerText = 'STOP';
