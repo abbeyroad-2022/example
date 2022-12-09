@@ -26,6 +26,8 @@
     let count = 6;
     let start = false;
 
+    let eve = ["animationiteration", "webkitAnimationIteration"]
+
     btn.addEventListener("click",(e)=>{
       let num =  Math.round((Math.random()*(count-1)));
       start = !start;
@@ -35,17 +37,20 @@
         roulette.classList.add("active")
         e.target.innerText = 'STOP';
       } 
-      roulette.addEventListener('animationiteration', () => {
-        if(!start) {
-          roulette.classList.remove("active");
-          e.target.disabled = true;
-          roulette.style.transform = "rotate("+(360 * 5 +360-((360/count)*num)) +"deg)"
-          setTimeout(() => {
-            e.target.disabled = false;
-            e.target.innerText = 'START';
-          }, "3600")
-        }
+      eve.forEach((ev)=>{
+        roulette.addEventListener(ev, () => {
+          if(!start) {
+            roulette.classList.remove("active");
+            e.target.disabled = true;
+            roulette.style.transform = "rotate("+(360 * 5 +360-((360/count)*num)) +"deg)"
+            setTimeout(() => {
+              e.target.disabled = false;
+              e.target.innerText = 'START';
+            }, "3600")
+          }
+        })
       })
+      
     })
     
   </script>
