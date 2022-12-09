@@ -32,6 +32,12 @@
     roulette.classList.add("active")
 
     btn.addEventListener("click",(e)=>{
+      start = !start;
+      if(start){
+        e.target.innerText = 'STOP';
+      } else {
+        e.target.innerText = 'START';
+      }
         e.target.innerText = 'STOP';
         let num =  Math.round((Math.random()*(count-1)));
         alert(num)
