@@ -117,7 +117,8 @@
 let sections = gsap.utils.toArray(".space-slide");
 
 let scrollTween = anitl.to(sections, {
-    xPercent: () => -(spe.scrollWidth - document.documentElement.clientWidth) + "px",
+  //  xPercent: -100 * (sections.length - 1),
+    xPercent: () => -(spe.scrollWidth - document.sections.clientWidth) + "px",
     ease: "none", // <-- IMPORTANT!
     scrollTrigger: {
       trigger: ".space",
@@ -126,7 +127,7 @@ let scrollTween = anitl.to(sections, {
       //snap: directionalSnap(1 / (sections.length - 1)),
       end: "+=3000"
     }
-  });
+  }); 
 
 gsap.set(".box-1, .box-2", {y: 100});
 ScrollTrigger.defaults({markers: {startColor: "white", endColor: "white"}});
