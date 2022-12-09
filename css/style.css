@@ -301,6 +301,9 @@ table {
                 animation-iteration-count: infinite;
         -webkit-animation-duration: 2s;
                 animation-duration: 2s; }
+      .roulette-wrapper .roulette-bg img.reset {
+        -webkit-animation-duration: 2s;
+                animation-duration: 2s; }
     .roulette-wrapper .roulette-bg button {
       position: absolute;
       top: 33vw;
