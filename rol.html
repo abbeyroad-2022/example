@@ -29,15 +29,13 @@
     btn.addEventListener("click",(e)=>{
       let num =  Math.round((Math.random()*(count-1)));
       start = !start;
-
       if(start){
         roulette.style.transform = "rotate("+ 0 +"deg)"
-        e.target.innerText = 'STOP';
         roulette.style.animationName = "rotating" 
         roulette.classList.add("active")
         e.target.innerText = 'STOP';
       } else {
-        e.target.innerText = 'START';
+        e.target.disabled = true;
         roulette.classList.remove("active");
         roulette.style.transform = "rotate("+(360 * 5 +360-((360/count)*num)) +"deg)"
         // setTimeout(() => {
@@ -47,21 +45,7 @@
         // }, "4800")
       }
       
-        // e.target.innerText = 'STOP';
-        // let num =  Math.round((Math.random()*(count-1)));
-        // alert(num)
-        // roulette.classList.remove("active");
-        // e.target.disabled = true;
-        // // roulette.style.transform = "rotate("+(360 * 5 +360-((360/count)*num)) +"deg)"
-        // setTimeout(() => {
-        //   e.target.disabled = false;
-        //   e.target.innerText = 'START';
-        //   roulette.style.animationName = "none" 
-        // }, "4800")
     })
-    // roulette.addEventListener('animationiteration', () => {
-          
-    //     })
     
   </script>
 
