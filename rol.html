@@ -38,17 +38,17 @@
       } else {
         e.target.innerText = 'START';
       }
-        e.target.innerText = 'STOP';
-        let num =  Math.round((Math.random()*(count-1)));
-        alert(num)
-        roulette.classList.remove("active");
-        e.target.disabled = true;
-        // roulette.style.transform = "rotate("+(360 * 5 +360-((360/count)*num)) +"deg)"
-        setTimeout(() => {
-          e.target.disabled = false;
-          e.target.innerText = 'START';
-          roulette.style.animationName = "none" 
-        }, "4800")
+        // e.target.innerText = 'STOP';
+        // let num =  Math.round((Math.random()*(count-1)));
+        // alert(num)
+        // roulette.classList.remove("active");
+        // e.target.disabled = true;
+        // // roulette.style.transform = "rotate("+(360 * 5 +360-((360/count)*num)) +"deg)"
+        // setTimeout(() => {
+        //   e.target.disabled = false;
+        //   e.target.innerText = 'START';
+        //   roulette.style.animationName = "none" 
+        // }, "4800")
     })
     // roulette.addEventListener('animationiteration', () => {
           
