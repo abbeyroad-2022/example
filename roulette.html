@@ -34,20 +34,19 @@
         roulette.style.animationName = "rotating" 
         roulette.classList.add("active")
         e.target.innerText = 'STOP';
-      } else {
-        roulette.classList.remove("active");
-        e.target.disabled = true;
-        roulette.style.transform = "rotate("+(360 * 5 +360-((360/count)*num)) +"deg)"
-        setTimeout(() => {
-          e.target.disabled = false;
-          e.target.innerText = 'START';
-          //roulette.style.animationName = "none" 
-        }, "3600")
-      }
+      } 
+      roulette.addEventListener('animationiteration', () => {
+        if(!start) {
+          roulette.classList.remove("active");
+          e.target.disabled = true;
+          roulette.style.transform = "rotate("+(360 * 5 +360-((360/count)*num)) +"deg)"
+          setTimeout(() => {
+            e.target.disabled = false;
+            e.target.innerText = 'START';
+          }, "3600")
+        }
+      })
     })
-    // roulette.addEventListener('animationiteration', () => {
-          
-    //     })
     
   </script>
 

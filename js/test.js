@@ -116,6 +116,7 @@
 
 let sections = gsap.utils.toArray(".space-slide");
 
+console.log(spe.scrollWidth - document.documentElement.clientWidth);
 let scrollTween = anitl.to(sections, {
     //xPercent: -100 * (sections.length - 1),
     xPercent: () => -(spe.scrollWidth - document.documentElement.clientWidth) + "px",
